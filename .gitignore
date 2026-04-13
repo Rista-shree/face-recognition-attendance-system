@@ -18,3 +18,9 @@ desktop.ini
 
 #node
 node_modules/
+
+#models & embeddings
+desktop/models/
+*.pkl
+*.yml
+*.json
