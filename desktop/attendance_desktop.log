@@ -1,0 +1,105 @@
+17:35:01  INFO      core.encoder  FaceEncoder ready – 0 employee(s) registered
+17:35:02  INFO      core.camera  Camera 0 started (640x480 @ 30 fps)
+17:35:02  INFO      services.sync_service  SyncService started (interval=60s)
+17:37:16  INFO      core.encoder  FaceEncoder ready – 0 employee(s) registered
+17:37:16  INFO      core.camera  Camera 0 started (640x480 @ 30 fps)
+17:37:16  INFO      services.sync_service  SyncService started (interval=60s)
+17:39:37  INFO      core.encoder  FaceEncoder ready – 0 employee(s) registered
+17:39:37  INFO      core.camera  Camera 0 started (640x480 @ 30 fps)
+17:39:37  INFO      services.sync_service  SyncService started (interval=60s)
+17:41:57  INFO      core.encoder  FaceEncoder ready – 0 employee(s) registered
+17:41:58  INFO      core.camera  Camera 0 started (640x480 @ 30 fps)
+17:41:58  INFO      services.sync_service  SyncService started (interval=60s)
+17:42:22  INFO      ui.dashboard  Recognition started
+17:42:30  INFO      ui.dashboard  Recognition stopped
+17:42:52  INFO      core.encoder  Trained LBPH model for rishta (101)
+17:43:01  INFO      ui.dashboard  Recognition started
+17:43:08  INFO      services.attendance_service  Logged: rishta (101) @ 17:43:07  conf=0.01
+17:43:43  INFO      services.attendance_service  Logged: rishta (101) @ 17:43:43  conf=0.05
+17:43:49  INFO      ui.dashboard  Recognition stopped
+17:44:02  WARNING   services.sync_service  Backend unreachable – records will sync later
+17:44:33  INFO      ui.main_window  Shutting down…
+17:44:33  INFO      ui.dashboard  Recognition stopped
+17:44:38  INFO      services.sync_service  SyncService stopped
+17:44:38  INFO      core.camera  Camera 0 stopped
+17:44:54  INFO      core.encoder  FaceEncoder ready – 1 employee(s) registered
+17:44:55  INFO      core.camera  Camera 0 started (640x480 @ 30 fps)
+17:44:55  INFO      services.sync_service  SyncService started (interval=60s)
+17:44:59  WARNING   services.sync_service  Backend unreachable – records will sync later
+17:45:01  INFO      ui.dashboard  Recognition started
+17:45:23  INFO      services.attendance_service  Logged: rishta (101) @ 17:45:23  conf=0.00
+17:45:28  INFO      ui.dashboard  Recognition stopped
+17:46:03  WARNING   services.sync_service  Backend unreachable – records will sync later
+17:47:07  WARNING   services.sync_service  Backend unreachable – records will sync later
+17:48:11  WARNING   services.sync_service  Backend unreachable – records will sync later
+17:49:15  WARNING   services.sync_service  Backend unreachable – records will sync later
+17:49:57  INFO      ui.main_window  Shutting down…
+17:49:57  INFO      ui.dashboard  Recognition stopped
+17:50:02  INFO      services.sync_service  SyncService stopped
+17:50:03  INFO      core.camera  Camera 0 stopped
+23:16:13  INFO      core.encoder  FaceEncoder ready – 1 employee(s) registered
+23:16:14  INFO      core.camera  Camera 0 started (640x480 @ 30 fps)
+23:16:14  INFO      services.sync_service  SyncService started (interval=60s)
+23:16:16  ERROR     services.sync_service  Backend returned error: 500 Server Error: Internal Server Error for url: http://localhost:8000/api/attendance/bulk
+23:17:18  ERROR     services.sync_service  Backend returned error: 500 Server Error: Internal Server Error for url: http://localhost:8000/api/attendance/bulk
+23:17:27  INFO      ui.dashboard  Recognition started
+23:18:20  ERROR     services.sync_service  Backend returned error: 500 Server Error: Internal Server Error for url: http://localhost:8000/api/attendance/bulk
+23:18:31  INFO      ui.dashboard  Recognition stopped
+23:19:03  INFO      ui.dashboard  Recognition started
+23:19:22  ERROR     services.sync_service  Backend returned error: 500 Server Error: Internal Server Error for url: http://localhost:8000/api/attendance/bulk
+23:19:35  INFO      ui.dashboard  Recognition stopped
+23:19:49  INFO      ui.main_window  Shutting down…
+23:19:49  INFO      ui.dashboard  Recognition stopped
+23:19:54  INFO      services.sync_service  SyncService stopped
+23:19:55  INFO      core.camera  Camera 0 stopped
+00:24:35  INFO      core.encoder  FaceEncoder ready – 1 employee(s) registered
+00:24:36  INFO      core.camera  Camera 0 started (640x480 @ 30 fps)
+00:24:36  INFO      services.sync_service  SyncService started (interval=60s)
+00:24:40  WARNING   services.sync_service  Backend unreachable – records will sync later
+00:24:43  INFO      ui.main_window  Shutting down…
+00:24:43  INFO      ui.dashboard  Recognition stopped
+00:24:48  INFO      services.sync_service  SyncService stopped
+00:24:48  INFO      core.camera  Camera 0 stopped
+00:24:58  INFO      core.encoder  FaceEncoder ready – 1 employee(s) registered
+00:24:59  INFO      core.camera  Camera 0 started (640x480 @ 30 fps)
+00:24:59  INFO      services.sync_service  SyncService started (interval=60s)
+00:25:03  WARNING   services.sync_service  Backend unreachable – records will sync later
+00:25:04  INFO      ui.main_window  Shutting down…
+00:25:04  INFO      ui.dashboard  Recognition stopped
+00:25:09  INFO      services.sync_service  SyncService stopped
+00:25:09  INFO      core.camera  Camera 0 stopped
+16:24:25  INFO      core.encoder  FaceEncoder ready – 1 employee(s) registered
+16:24:26  INFO      core.camera  Camera 0 started (640x480 @ 30 fps)
+16:24:26  INFO      services.sync_service  SyncService started (interval=60s)
+16:24:28  ERROR     services.sync_service  Backend returned error: 500 Server Error: Internal Server Error for url: http://localhost:8000/api/attendance/bulk
+16:24:48  INFO      ui.main_window  Shutting down…
+16:24:48  INFO      ui.dashboard  Recognition stopped
+16:24:53  INFO      services.sync_service  SyncService stopped
+16:24:53  INFO      core.camera  Camera 0 stopped
+07:42:20  INFO      core.encoder  FaceEncoder ready – 1 employee(s) registered
+07:42:21  INFO      core.camera  Camera 0 started (640x480 @ 30 fps)
+07:42:21  INFO      services.sync_service  SyncService started (interval=60s)
+07:42:25  WARNING   services.sync_service  Backend unreachable – records will sync later
+07:43:28  ERROR     services.sync_service  Backend returned error: 500 Server Error: Internal Server Error for url: http://localhost:8000/api/attendance/bulk
+07:44:31  ERROR     services.sync_service  Backend returned error: 500 Server Error: Internal Server Error for url: http://localhost:8000/api/attendance/bulk
+07:45:33  ERROR     services.sync_service  Backend returned error: 500 Server Error: Internal Server Error for url: http://localhost:8000/api/attendance/bulk
+07:46:35  ERROR     services.sync_service  Backend returned error: 500 Server Error: Internal Server Error for url: http://localhost:8000/api/attendance/bulk
+07:47:37  ERROR     services.sync_service  Backend returned error: 500 Server Error: Internal Server Error for url: http://localhost:8000/api/attendance/bulk
+07:48:39  ERROR     services.sync_service  Backend returned error: 500 Server Error: Internal Server Error for url: http://localhost:8000/api/attendance/bulk
+07:49:20  INFO      ui.main_window  Shutting down…
+07:49:20  INFO      ui.dashboard  Recognition stopped
+07:49:25  INFO      services.sync_service  SyncService stopped
+07:49:26  INFO      core.camera  Camera 0 stopped
+08:12:56  INFO      core.encoder  FaceEncoder ready – 1 employee(s) registered
+08:12:57  INFO      core.camera  Camera 0 started (640x480 @ 30 fps)
+08:12:57  INFO      services.sync_service  SyncService started (interval=60s)
+08:12:59  INFO      services.sync_service  Synced 3 record(s) to backend
+08:12:59  INFO      ui.main_window  Auto-synced 3 records
+08:14:01  INFO      services.sync_service  Synced 3 record(s) to backend
+08:14:01  INFO      ui.main_window  Auto-synced 3 records
+08:15:03  INFO      services.sync_service  Synced 3 record(s) to backend
+08:15:03  INFO      ui.main_window  Auto-synced 3 records
+08:15:12  INFO      ui.main_window  Shutting down…
+08:15:12  INFO      ui.dashboard  Recognition stopped
+08:15:17  INFO      services.sync_service  SyncService stopped
+08:15:18  INFO      core.camera  Camera 0 stopped

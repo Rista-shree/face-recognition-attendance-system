@@ -1,0 +1,26 @@
+# ─────────────────────────────────────────────
+#  desktop/requirements.txt
+#
+#  ✅ Python 3.14 compatible
+#  ✅ No dlib  ✅ No cmake  ✅ No build tools
+#  ✅ Pure pre-built wheels on all platforms
+#
+#  IMPORTANT: install opencv-contrib-python,
+#  NOT opencv-python — the contrib build
+#  includes the cv2.face module (LBPH, etc.)
+# ─────────────────────────────────────────────
+
+# Face detection (Haar Cascade) + recognition (LBPH)
+opencv-contrib-python>=4.9.0
+
+# Image processing (PIL → ImageTk for Tkinter display)
+Pillow>=10.0.0
+
+# UI framework with modern themes
+ttkbootstrap>=1.10.1
+
+# HTTP client (sync records to backend API)
+requests>=2.31.0
+
+# Numerical
+numpy>=1.26.0
