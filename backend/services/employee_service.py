@@ -35,13 +35,13 @@ async def create_employee(db: AsyncSession, data: EmployeeCreate) -> Employee:
     existing = await db.execute(
         select(Employee).where(Employee.employee_id == data.employee_id)
     )
-    if existing.scalar_one_or_none():
+    if existing.scalars().first():
         raise HTTPException(
             status_code=status.HTTP_409_CONFLICT,
             detail=f"Employee ID '{data.employee_id}' already exists",
         )
-
-    emp = Employee(**data.model_dump())
+    from datetime import datetime,timezone
+    emp = Employee(**data.model_dump(), created_at=datetime.now(timezone.utc))
     db.add(emp)
     await db.flush()
     await db.refresh(emp)

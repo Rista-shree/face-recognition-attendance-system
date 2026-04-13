@@ -24,7 +24,7 @@ async def get_employee(employee_id: str, db: DBSession, _: CurrentUser):
 
 
 @router.post("/", response_model=EmployeeOut, status_code=status.HTTP_201_CREATED)
-async def create_employee(payload: EmployeeCreate, db: DBSession, _: AdminUser):
+async def create_employee(payload: EmployeeCreate, db: DBSession,_:AdminUser):
     """Create a new employee. Admin only."""
     return await employee_service.create_employee(db, payload)
 
