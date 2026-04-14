@@ -15,98 +15,92 @@
 
 import json
 import logging
-import pickle
 from pathlib import Path
-from typing  import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple
 
 import cv2
 import numpy as np
 
-from config.settings import MODELS_DIR, EMBEDDINGS_FILE
+from config.settings import MODELS_DIR
 
 logger = logging.getLogger(__name__)
 
-# Haar Cascade ships inside the opencv-contrib-python package
-_CASCADE_PATH = cv2.data.haarcascades + "haarcascade_frontalface_default.xml" # type: ignore
+_CASCADE_PATH = cv2.data.haarcascades + "haarcascade_frontalface_default.xml"
 
-# Confidence threshold: LOWER = stricter match (LBPH distance, not similarity)
-LBPH_THRESHOLD = 80.0   # tune between 60–100 depending on lighting
+LBPH_THRESHOLD = 90.0
 
 
 class FaceEncoder:
-    """
-    Manages per-employee LBPH face models on disk.
-
-    Each employee gets their own trained LBPHFaceRecognizer saved as
-    a .yml file.  A JSON sidecar (index.json) maps employee_id → name.
-
-    Flow:
-        register  → collect N face crops → train LBPH → save .yml
-        recognize → load all models → predict → return best match
-    """
-
     def __init__(self, models_dir: Path = MODELS_DIR):
-        self._dir      = models_dir
+        self._dir = models_dir
         self._dir.mkdir(parents=True, exist_ok=True)
-        self._index_path = self._dir / "index.json"
 
-        # {employee_id: name}
+        self._index_path = self._dir / "index.json"
         self._index: Dict[str, str] = self._load_index()
 
-        # Haar Cascade for face detection during encoding
         self._cascade = cv2.CascadeClassifier(_CASCADE_PATH)
         if self._cascade.empty():
-            raise RuntimeError(
-                f"Failed to load Haar Cascade from: {_CASCADE_PATH}\n"
-                "Make sure opencv-contrib-python is installed, not opencv-python."
-            )
+            raise RuntimeError("Failed to load Haar Cascade")
 
-        logger.info("FaceEncoder ready – %d employee(s) registered", len(self._index))
+        self._samples: Dict[str, List[np.ndarray]] = {}
 
-    # ── Public API ─────────────────────────────────────────────────────────────
+        logger.info("FaceEncoder ready – %d employee(s)", len(self._index))
 
-    def encode_from_file(self, employee_id: str, name: str,
-                         image_path: str) -> bool:
-        """Load an image file and encode the face inside it."""
-        bgr = cv2.imread(image_path)
-        if bgr is None:
-            logger.error("Cannot read: %s", image_path)
+    # ─────────────── PUBLIC METHODS ───────────────
+
+    def add_training_frame(self, employee_id: str, name: str, frame: np.ndarray) -> bool:
+        crops = self.get_face_crops(frame)
+        if not crops:
+            logger.warning("No face detected for %s", name)
             return False
-        return self._encode_and_train(employee_id, name, bgr)
 
-    def encode_from_frame(self, employee_id: str, name: str,
-                           bgr_frame: np.ndarray) -> bool:
-        """Encode a face from a live BGR camera frame."""
-        return self._encode_and_train(employee_id, name, bgr_frame)
+        crop, _ = max(crops, key=lambda c: c[1][2] * c[1][3])
 
-    def remove_employee(self, employee_id: str) -> bool:
-        """Delete the employee's model and index entry."""
-        model_path = self._model_path(employee_id)
-        if model_path.exists():
-            model_path.unlink()
-        if employee_id in self._index:
-            del self._index[employee_id]
-            self._save_index()
-            return True
-        return False
+        if employee_id not in self._samples:
+            self._samples[employee_id] = []
 
-    def recognize_frame(self, bgr_frame: np.ndarray
+        self._samples[employee_id].append(crop)
+
+        logger.info("Collected sample %d for %s",
+                    len(self._samples[employee_id]), name)
+
+        return True
+
+    def train_employee(self, employee_id: str, name: str) -> bool:
+        samples = self._samples.get(employee_id, [])
+
+        if len(samples) < 20:
+            logger.warning("Not enough samples for %s (%d/20)", name, len(samples))
+            return False
+
+        recognizer = cv2.face.LBPHFaceRecognizer_create(
+            radius=2, neighbors=16, grid_x=8, grid_y=8,
+            threshold=LBPH_THRESHOLD
+        )
+
+        # ✅ FIXED HERE
+        labels = np.zeros(len(samples), dtype=np.int32)
+
+        recognizer.train(samples, labels)
+        recognizer.save(str(self._model_path(employee_id)))
+
+        self._index[employee_id] = name
+        self._save_index()
+
+        self._samples[employee_id] = []
+
+        logger.info("Trained model for %s (%s)", name, employee_id)
+        return True
+
+    def recognize_frame(self, frame: np.ndarray
                         ) -> List[Tuple[Optional[str], str, float, tuple]]:
-        """
-        Detect all faces in *bgr_frame* and identify each one.
 
-        Returns a list of tuples:
-            (employee_id, name, confidence, (x, y, w, h))
-
-        employee_id is None and name is "Unknown" when no match is found.
-        confidence is 0.0–1.0 (converted from LBPH distance).
-        """
-        gray  = cv2.cvtColor(bgr_frame, cv2.COLOR_BGR2GRAY)
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         rects = self._cascade.detectMultiScale(
             gray, scaleFactor=1.1, minNeighbors=5, minSize=(60, 60)
         )
 
-        if not len(rects):
+        if len(rects) == 0:
             return []
 
         models = self._load_all_models()
@@ -114,106 +108,78 @@ class FaceEncoder:
 
         for (x, y, w, h) in rects:
             face_roi = cv2.resize(gray[y:y+h, x:x+w], (200, 200))
-            best_id   = None
+
+            best_id = None
             best_name = "Unknown"
             best_conf = 0.0
 
             for emp_id, recognizer in models.items():
                 label, distance = recognizer.predict(face_roi)
+
                 if distance < LBPH_THRESHOLD:
-                    # Convert distance to 0–1 confidence (lower distance = higher conf)
                     conf = round(1.0 - (distance / LBPH_THRESHOLD), 3)
+
                     if conf > best_conf:
                         best_conf = conf
-                        best_id   = emp_id
+                        best_id = emp_id
                         best_name = self._index.get(emp_id, emp_id)
 
             results.append((best_id, best_name, best_conf, (x, y, w, h)))
 
         return results
 
-    def get_face_crops(self, bgr_frame: np.ndarray
-                       ) -> List[Tuple[np.ndarray, tuple]]:
-        """
-        Return (grayscale face crop, (x,y,w,h)) for every detected face.
-        Used during registration to collect training samples.
-        """
-        gray  = cv2.cvtColor(bgr_frame, cv2.COLOR_BGR2GRAY)
+    def get_face_crops(self, frame: np.ndarray):
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         rects = self._cascade.detectMultiScale(
             gray, scaleFactor=1.1, minNeighbors=5, minSize=(60, 60)
         )
+
         crops = []
         for (x, y, w, h) in rects:
             crop = cv2.resize(gray[y:y+h, x:x+w], (200, 200))
             crops.append((crop, (x, y, w, h)))
+
         return crops
 
-    def get_name(self, employee_id: str) -> Optional[str]:
-        return self._index.get(employee_id)
+    def remove_employee(self, employee_id: str) -> bool:
+        path = self._model_path(employee_id)
 
-    def get_all_encodings(self):
-        """Compatibility shim — not used with LBPH but keeps interface stable."""
-        return [], []
+        if path.exists():
+            path.unlink()
+
+        if employee_id in self._index:
+            del self._index[employee_id]
+            self._save_index()
+            return True
+
+        return False
 
     @property
     def employee_count(self) -> int:
         return len(self._index)
 
-    # ── Internal ───────────────────────────────────────────────────────────────
+    # ─────────────── INTERNAL METHODS ───────────────
 
-    def _encode_and_train(self, employee_id: str, name: str,
-                          bgr_frame: np.ndarray) -> bool:
-        crops = self.get_face_crops(bgr_frame)
-        if not crops:
-            logger.warning("No face found for %s – skipping", name)
-            return False
-
-        # Use only the largest detected face
-        crop, _ = max(crops, key=lambda c: c[1][2] * c[1][3])
-
-        # Load existing model to add samples (incremental training)
-        recognizer = self._load_model(employee_id)
-
-        # LBPH update() appends new samples to an already-trained model
-        recognizer.update([crop], np.array([0]))
-        recognizer.save(str(self._model_path(employee_id)))
-
-        self._index[employee_id] = name
-        self._save_index()
-        logger.info("Trained LBPH model for %s (%s)", name, employee_id)
-        return True
-
-    def _load_model(self, employee_id: str) -> cv2.face.LBPHFaceRecognizer:
-        path = self._model_path(employee_id)
-        recognizer = cv2.face.LBPHFaceRecognizer_create(
-            radius=2, neighbors=16, grid_x=8, grid_y=8,
-            threshold=LBPH_THRESHOLD
-        )
-        if path.exists():
-            recognizer.read(str(path))
-        else:
-            # Bootstrap with a dummy sample so .update() works
-            dummy = np.zeros((200, 200), dtype=np.uint8)
-            recognizer.train([dummy], np.array([0]))
-        return recognizer
-
-    def _load_all_models(self) -> Dict[str, cv2.face.LBPHFaceRecognizer]:
+    def _load_all_models(self):
         models = {}
+
         for emp_id in self._index:
             path = self._model_path(emp_id)
+
             if path.exists():
                 rec = cv2.face.LBPHFaceRecognizer_create(
                     threshold=LBPH_THRESHOLD
                 )
                 rec.read(str(path))
                 models[emp_id] = rec
+
         return models
 
     def _model_path(self, employee_id: str) -> Path:
         safe_id = employee_id.replace("/", "_").replace("\\", "_")
         return self._dir / f"{safe_id}.yml"
 
-    def _load_index(self) -> Dict[str, str]:
+    def _load_index(self):
         if self._index_path.exists():
             with open(self._index_path, "r", encoding="utf-8") as f:
                 return json.load(f)

@@ -24,6 +24,7 @@ async def bulk_create(db: AsyncSession,
             name=r.name,
             timestamp=r.timestamp,
             confidence=r.confidence,
+            created_at=r.timestamp,
         )
         for r in records
     ]
