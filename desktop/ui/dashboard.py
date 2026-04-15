@@ -2,185 +2,96 @@
 #  desktop/ui/dashboard.py
 #  Main dashboard tab: camera feed + status
 # ─────────────────────────────────────────────
-
-
 import tkinter as tk
-from tkinter import ttk, messagebox, simpledialog
+from tkinter import messagebox, simpledialog
 import threading
 import logging
-import ttkbootstrap as ttk
-import cv2
-import numpy as np
-from datetime import datetime   # ✅ ADDED
+import time
+from datetime import datetime
 
-from core.camera          import Camera
-from core.encoder         import FaceEncoder
-from core.face_detector   import FaceDetector
+import ttkbootstrap as ttk
+
 from core.face_recognizer import FaceRecognizer
-from services.attendance_service import AttendanceService
-from services.sync_service       import SyncService
-from ui.components.camera_feed   import CameraFeedWidget
-from ui.components.status_panel  import StatusPanel
+from core.face_detector import FaceDetector
+
+from ui.components.camera_feed import CameraFeedWidget
+from ui.components.status_panel import StatusPanel
 
 logger = logging.getLogger(__name__)
+
+COOLDOWN = 10  # seconds
+UNKNOWN_COOLDOWN = 3  # seconds
 
 
 class DashboardTab(ttk.Frame):
 
-    def __init__(self, parent,
-                 camera:   Camera,
-                 encoder:  FaceEncoder,
-                 svc:      AttendanceService,
-                 sync_svc: SyncService,
-                 **kwargs):
+    def __init__(self, parent, camera, encoder, svc, sync_svc, **kwargs):
         super().__init__(parent, **kwargs)
-        self._camera   = camera
-        self._encoder  = encoder
-        self._svc      = svc
+
+        self._camera = camera
+        self._encoder = encoder
+        self._svc = svc
         self._sync_svc = sync_svc
 
-        self._recognizer   = FaceRecognizer(encoder)
-        self._running      = False
+        self._recognizer = FaceRecognizer(encoder)
+
+        self._running = False
         self._latest_frame = None
 
-        self._last_logged = {}   # ✅ ADDED (cooldown memory)
-
+        self._last_logged = {}  # stores cooldown timestamps
+        self._last_ui_update={}#dictionary to track ui timing
         self._build_ui()
 
-    # ── Public API ─────────────────────────────────────────
-
-    def start_recognition(self):
-        if self._running:
-            return
-        self._running = True
-        self._btn_start.config(state=tk.DISABLED)
-        self._btn_stop.config(state=tk.NORMAL)
-        self._feed.start()
-        threading.Thread(
-            target=self._recognition_loop,
-            daemon=True,
-            name="RecognitionLoop"
-        ).start()
-        logger.info("Recognition started")
-
-    def stop_recognition(self):
-        self._running = False
-        self._feed.stop()
-        self._btn_start.config(state=tk.NORMAL)
-        self._btn_stop.config(state=tk.DISABLED)
-        logger.info("Recognition stopped")
-
-    def register_face(self):
-        emp_id = simpledialog.askstring("Register", "Employee ID:")
-        if not emp_id:
-            return
-
-        name = simpledialog.askstring("Register", "Full Name:")
-        if not name:
-            return
-
-        emp_id = emp_id.strip()
-        name = name.strip()
-
-        messagebox.showinfo(
-            "Info",
-            "Look at the camera.\nWe will capture 30 samples automatically."
-        )
-
-        collected = 0
-
-        while collected < 30:
-            frame = self._camera.frame
-
-            if frame is None:
-                continue
-
-            ok = self._encoder.add_training_frame(emp_id, name, frame)
-
-            if ok:
-                collected += 1
-                print(f"Collecting samples:{collected}/30")
-
-            cv2.waitKey(50)
-
-        trained = self._encoder.train_employee(emp_id, name)
-
-        if trained:
-            self._svc.upsert_employee(emp_id, name)
-            self._status.set_known_faces(self._encoder.employee_count)
-
-            messagebox.showinfo(
-                "Success",
-                f"{name} registered successfully!"
-            )
-        else:
-            messagebox.showerror(
-                "Error",
-                "Training failed. Try again."
-            )
-
-    # ── UI Build ─────────────────────────────────────────
+    # ─────────────────────────────
 
     def _build_ui(self):
         pane = tk.PanedWindow(self, orient=tk.HORIZONTAL)
-        pane.pack(fill=tk.BOTH, expand=True, padx=8, pady=8)
+        pane.pack(fill=tk.BOTH, expand=True)
 
         self._feed = CameraFeedWidget(
             pane,
-            get_frame_cb=lambda: self._latest_frame,
-            width=640,
-            height=480
+            get_frame_cb=lambda: self._latest_frame
         )
         pane.add(self._feed)
 
         self._status = StatusPanel(pane)
         pane.add(self._status)
         self._status.set_known_faces(self._encoder.employee_count)
-
         toolbar = ttk.Frame(self)
-        toolbar.pack(fill=tk.X, padx=8, pady=(0, 8))
+        toolbar.pack(fill=tk.X)
 
-        self._btn_start = ttk.Button(
-            toolbar,
-            text="▶  Start",
-            command=self.start_recognition,
-            bootstyle="success"
-        )
-        self._btn_start.pack(side=tk.LEFT, padx=4)
+        self._btn_start = ttk.Button(toolbar, text="Start", command=self.start_recognition)
+        self._btn_start.pack(side=tk.LEFT)
 
-        self._btn_stop = ttk.Button(
-            toolbar,
-            text="■  Stop",
-            command=self.stop_recognition,
-            state=tk.DISABLED,
-            bootstyle="danger"
-        )
-        self._btn_stop.pack(side=tk.LEFT, padx=4)
+        self._btn_stop = ttk.Button(toolbar, text="Stop", command=self.stop_recognition)
+        self._btn_stop.pack(side=tk.LEFT)
 
-        ttk.Separator(toolbar, orient=tk.VERTICAL).pack(
-            side=tk.LEFT, fill=tk.Y, padx=8
-        )
+        ttk.Button(toolbar, text="Register", command=self.register_face).pack(side=tk.LEFT)
+        ttk.Button(toolbar, text="Sync Now", command=self._manual_sync).pack(side=tk.RIGHT)
 
-        ttk.Button(
-            toolbar,
-            text="＋  Register Face",
-            command=self.register_face,
-            bootstyle="primary-outline"
-        ).pack(side=tk.LEFT, padx=4)
+    # ─────────────────────────────
 
-        ttk.Button(
-            toolbar,
-            text="↑  Sync Now",
-            command=self._manual_sync,
-            bootstyle="secondary-outline"
-        ).pack(side=tk.RIGHT, padx=4)
+    def start_recognition(self):
+        if self._running:
+            return
 
-    # ── Recognition loop ─────────────────────────────────
+        self._running = True
+        self._feed.start()
 
-    def _recognition_loop(self):
+        threading.Thread(target=self._loop, daemon=True).start()
+
+    def stop_recognition(self):
+        self._running = False
+        self._feed.stop()
+
+    # ─────────────────────────────
+
+    def _loop(self):
         while self._running:
             frame = self._camera.frame
+
             if frame is None:
+                time.sleep(0.02)
                 continue
 
             results = self._recognizer.recognize(frame)
@@ -189,54 +100,77 @@ class DashboardTab(ttk.Frame):
             labels = []
 
             for r in results:
-                if r.employee_id is None:
-                    logged = False
-                else:
-                    # ✅ FIX: cooldown logic
-                    now = datetime.now()
-                    last_time = self._last_logged.get(r.employee_id)
+                now = datetime.now()
 
-                    if last_time is None or (now - last_time).seconds > 10:
+                if r.employee_id is None:
+                    # UNKNOWN cooldown
+                    last = self._last_logged.get("UNKNOWN")
+
+                    if last is None or (now - last).total_seconds() > UNKNOWN_COOLDOWN:
+                        self._last_logged["UNKNOWN"] = now
+
+                        self.after(0, self._status.log_recognition,
+                                   r.name, r.confidence, False)
+
+                    logged = False
+
+                else:
+                    last = self._last_logged.get(r.employee_id)
+
+                    if last is None or (now - last).total_seconds() >= COOLDOWN:
                         logged = self._svc.log_attendance(
                             r.employee_id, r.name, r.confidence
                         )
-                        self._last_logged[r.employee_id] = now
+
+                        if logged:
+                         self._last_logged[r.employee_id] = now
                     else:
                         logged = False
 
-                label = f"{r.name} ({r.confidence:.0%})"
-                labels.append(label)
+                    # prevents  show known faces from being spammy
+                    last_ui= self._last_ui_update.get(r.employee_id)
+                    if last_ui is None or (now-last_ui).total_seconds()>1:
+                          self.after(0,self._status.log_recognition , r.name, r.confidence, logged)
+                          self._last_ui_update[r.employee_id]=now
+
+                labels.append(f"{r.name} ({r.confidence:.0%})")
                 locations.append(r.location)
 
-                self.after(
-                    0,
-                    self._status.log_recognition,
-                    r.name,
-                    r.confidence,
-                    logged
-                )
+            self._latest_frame = FaceDetector.draw_boxes(frame, locations, labels)
+            #updating ui stats (known, today)
+            today_count= len(self._svc.get_today())
+            pending=len(self._svc.get_unsynced())
 
-            today_count = len(self._svc.get_today())
-            pending = len(self._svc.get_unsynced())
+            self.after(0,self._status.set_today_count,today_count)
+            self.after(0,self._status.set_sync_status,pending)
+            time.sleep(0.03)
 
-            self.after(0, self._status.set_today_count, today_count)
-            self.after(0, self._status.set_sync_status, pending)
+    # ─────────────────────────────
 
-            self._latest_frame = FaceDetector.draw_boxes(
-                frame, locations, labels
-            )
+    def register_face(self):
+        emp_id = simpledialog.askstring("ID", "Employee ID")
+        name = simpledialog.askstring("Name", "Name")
 
-    # ── Helpers ─────────────────────────────────────────
+        if not emp_id or not name:
+            return
+
+        collected = 0
+
+        while collected < 30:
+            frame = self._camera.frame
+            if frame is None:
+                continue
+
+            if self._encoder.add_training_frame(emp_id, name, frame):
+                collected += 1
+
+            time.sleep(0.05)
+
+        if self._encoder.train_employee(emp_id, name):
+            self._svc.upsert_employee(emp_id, name)
+            messagebox.showinfo("Done", "Registered successfully")
+
+    # ─────────────────────────────
 
     def _manual_sync(self):
-        count = self._sync_svc.sync_now()
-        pending = len(self._svc.get_unsynced())
-        self._status.set_sync_status(pending)
-
-        if count:
-            messagebox.showinfo("Sync", f"{count} record(s) synced.")
-        else:
-            messagebox.showinfo(
-                "Sync",
-                "Nothing to sync or backend offline."
-            )
+        self._sync_svc.sync_now()

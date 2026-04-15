@@ -541,3 +541,552 @@
 13:36:12  INFO      ui.dashboard  Recognition stopped
 13:36:17  INFO      services.sync_service  SyncService stopped
 13:36:18  INFO      core.camera  Camera 0 stopped
+22:18:07  INFO      core.encoder  FaceEncoder ready – 2 employee(s)
+22:18:08  INFO      core.camera  Camera 0 started (640x480 @ 30 fps)
+22:18:08  INFO      services.sync_service  SyncService started (interval=60s)
+22:18:10  INFO      services.sync_service  Synced 4 record(s) to backend
+22:18:10  INFO      ui.main_window  Auto-synced 4 records
+22:18:13  INFO      ui.dashboard  Recognition started
+22:18:36  INFO      ui.dashboard  Recognition stopped
+22:18:40  INFO      ui.dashboard  Recognition started
+22:19:16  INFO      services.sync_service  Synced 4 record(s) to backend
+22:19:16  INFO      ui.main_window  Auto-synced 4 records
+22:19:18  INFO      ui.dashboard  Recognition stopped
+22:19:20  INFO      ui.dashboard  Recognition started
+22:19:32  INFO      ui.main_window  Shutting down…
+22:19:32  INFO      ui.dashboard  Recognition stopped
+22:19:37  INFO      services.sync_service  SyncService stopped
+22:19:38  INFO      core.camera  Camera 0 stopped
+22:20:00  INFO      core.encoder  FaceEncoder ready – 2 employee(s)
+22:20:01  INFO      core.camera  Camera 0 started (640x480 @ 30 fps)
+22:20:01  INFO      services.sync_service  SyncService started (interval=60s)
+22:20:03  INFO      services.sync_service  Synced 4 record(s) to backend
+22:20:03  INFO      ui.main_window  Auto-synced 4 records
+22:20:07  INFO      ui.dashboard  Recognition started
+22:21:05  INFO      services.sync_service  Synced 4 record(s) to backend
+22:21:05  INFO      ui.main_window  Auto-synced 4 records
+22:21:07  INFO      services.sync_service  Synced 4 record(s) to backend
+22:21:07  INFO      ui.main_window  Auto-synced 4 records
+22:22:06  INFO      ui.dashboard  Recognition stopped
+22:22:07  INFO      services.sync_service  Synced 8 record(s) to backend
+22:22:07  INFO      ui.main_window  Auto-synced 8 records
+22:22:08  INFO      ui.main_window  Shutting down…
+22:22:08  INFO      ui.dashboard  Recognition stopped
+22:22:13  INFO      services.sync_service  SyncService stopped
+22:22:14  INFO      core.camera  Camera 0 stopped
+22:37:51  INFO      core.encoder  FaceEncoder ready – 2 employee(s)
+22:37:55  INFO      core.camera  Camera 0 started (640x480 @ 30 fps)
+22:37:55  INFO      services.sync_service  SyncService started (interval=60s)
+22:37:57  INFO      services.sync_service  Synced 8 record(s) to backend
+22:37:57  INFO      ui.main_window  Auto-synced 8 records
+22:38:09  INFO      ui.dashboard  Recognition started
+22:38:21  INFO      ui.dashboard  Recognition stopped
+22:38:24  INFO      ui.main_window  Shutting down…
+22:38:24  INFO      ui.dashboard  Recognition stopped
+22:38:29  INFO      services.sync_service  SyncService stopped
+22:38:29  INFO      core.camera  Camera 0 stopped
+22:59:23  INFO      core.encoder  FaceEncoder ready – 2 employee(s)
+22:59:23  INFO      core.camera  opening camera...
+22:59:26  INFO      core.camera  Camera 0 started (640x480 @ 30 fps)
+22:59:26  INFO      services.sync_service  SyncService started (interval=60s)
+22:59:30  WARNING   services.sync_service  Backend unreachable – records will sync later
+22:59:32  INFO      ui.dashboard  Recognition started
+22:59:50  INFO      ui.dashboard  Recognition stopped
+22:59:52  INFO      ui.main_window  Shutting down…
+22:59:52  INFO      ui.dashboard  Recognition stopped
+22:59:57  INFO      services.sync_service  SyncService stopped
+22:59:58  INFO      core.camera  Camera 0 stopped
+23:10:19  INFO      core.encoder  FaceEncoder ready – 2 employee(s)
+23:10:19  INFO      core.camera  opening camera...
+23:10:23  INFO      core.camera  Camera 0 started (640x480 @ 30 fps)
+23:10:23  INFO      services.sync_service  SyncService started (interval=60s)
+23:10:25  INFO      services.sync_service  Synced 8 record(s) to backend
+23:10:25  INFO      ui.main_window  Auto-synced 8 records
+23:10:33  INFO      ui.dashboard  Recognition started
+23:11:27  INFO      services.sync_service  Synced 8 record(s) to backend
+23:11:27  INFO      ui.main_window  Auto-synced 8 records
+23:12:29  INFO      services.sync_service  Synced 8 record(s) to backend
+23:12:29  INFO      ui.main_window  Auto-synced 8 records
+23:13:28  INFO      core.encoder  Collected sample 1 for rishta
+23:13:28  INFO      core.encoder  Collected sample 2 for rishta
+23:13:28  INFO      core.encoder  Collected sample 3 for rishta
+23:13:28  INFO      core.encoder  Collected sample 4 for rishta
+23:13:28  INFO      core.encoder  Collected sample 5 for rishta
+23:13:28  INFO      core.encoder  Collected sample 6 for rishta
+23:13:28  INFO      core.encoder  Collected sample 7 for rishta
+23:13:28  INFO      core.encoder  Collected sample 8 for rishta
+23:13:28  INFO      core.encoder  Collected sample 9 for rishta
+23:13:28  INFO      core.encoder  Collected sample 10 for rishta
+23:13:28  INFO      core.encoder  Collected sample 11 for rishta
+23:13:28  INFO      core.encoder  Collected sample 12 for rishta
+23:13:28  INFO      core.encoder  Collected sample 13 for rishta
+23:13:28  INFO      core.encoder  Collected sample 14 for rishta
+23:13:28  INFO      core.encoder  Collected sample 15 for rishta
+23:13:29  INFO      core.encoder  Collected sample 16 for rishta
+23:13:29  INFO      core.encoder  Collected sample 17 for rishta
+23:13:29  INFO      core.encoder  Collected sample 18 for rishta
+23:13:29  INFO      core.encoder  Collected sample 19 for rishta
+23:13:29  INFO      core.encoder  Collected sample 20 for rishta
+23:13:29  INFO      core.encoder  Collected sample 21 for rishta
+23:13:29  INFO      core.encoder  Collected sample 22 for rishta
+23:13:29  INFO      core.encoder  Collected sample 23 for rishta
+23:13:29  INFO      core.encoder  Collected sample 24 for rishta
+23:13:29  INFO      core.encoder  Collected sample 25 for rishta
+23:13:29  INFO      core.encoder  Collected sample 26 for rishta
+23:13:29  INFO      core.encoder  Collected sample 27 for rishta
+23:13:29  INFO      core.encoder  Collected sample 28 for rishta
+23:13:29  INFO      core.encoder  Collected sample 29 for rishta
+23:13:29  INFO      core.encoder  Collected sample 30 for rishta
+23:13:31  INFO      services.sync_service  Synced 8 record(s) to backend
+23:13:31  INFO      ui.main_window  Auto-synced 8 records
+23:13:47  INFO      core.encoder  Trained model for rishta (101)
+23:13:56  INFO      ui.dashboard  Recognition stopped
+23:13:59  INFO      ui.dashboard  Recognition started
+23:14:34  INFO      services.attendance_service  Logged: rishta (101) @ 23:14:34  conf=0.18
+23:14:35  INFO      services.sync_service  Synced 8 record(s) to backend
+23:14:35  INFO      ui.main_window  Auto-synced 8 records
+23:14:50  INFO      ui.dashboard  Recognition stopped
+23:14:55  INFO      ui.dashboard  Recognition started
+23:15:43  INFO      services.sync_service  Synced 9 record(s) to backend
+23:15:43  INFO      ui.main_window  Auto-synced 9 records
+23:15:51  INFO      services.attendance_service  Logged: rishta (101) @ 23:15:51  conf=0.31
+23:15:54  INFO      ui.dashboard  Recognition stopped
+23:16:37  INFO      services.attendance_service  Logged: rishta (101) @ 23:16:37  conf=0.25
+23:16:45  INFO      services.sync_service  Synced 11 record(s) to backend
+23:16:45  INFO      ui.main_window  Auto-synced 11 records
+23:17:32  INFO      services.sync_service  Synced 11 record(s) to backend
+23:17:32  INFO      ui.main_window  Auto-synced 11 records
+23:17:45  INFO      ui.main_window  Shutting down…
+23:17:45  INFO      ui.dashboard  Recognition stopped
+23:17:47  INFO      services.sync_service  Synced 11 record(s) to backend
+23:17:47  INFO      ui.main_window  Auto-synced 11 records
+23:17:50  INFO      services.sync_service  SyncService stopped
+23:40:20  INFO      core.encoder  FaceEncoder ready – 2 employee(s)
+23:40:20  INFO      core.camera  opening camera...
+23:40:24  INFO      core.camera  Camera 0 started (640x480 @ 30 fps)
+23:40:24  INFO      services.sync_service  SyncService started (interval=60s)
+23:40:26  INFO      services.sync_service  Synced 11 record(s) to backend
+23:40:26  INFO      ui.main_window  Auto-synced 11 records
+23:40:29  INFO      ui.dashboard  Recognition started
+23:41:28  INFO      services.sync_service  Synced 11 record(s) to backend
+23:41:28  INFO      ui.main_window  Auto-synced 11 records
+23:41:34  INFO      ui.dashboard  Recognition stopped
+23:41:35  INFO      services.attendance_service  Logged: rishta (101) @ 23:41:35  conf=0.01
+23:42:30  INFO      services.sync_service  Synced 12 record(s) to backend
+23:42:30  INFO      ui.main_window  Auto-synced 12 records
+23:43:07  INFO      ui.main_window  Shutting down…
+23:43:07  INFO      ui.dashboard  Recognition stopped
+23:43:12  INFO      services.sync_service  SyncService stopped
+23:43:13  INFO      core.camera  Camera 0 stopped
+23:47:16  INFO      core.encoder  FaceEncoder ready – 2 employee(s)
+23:47:17  INFO      core.camera  Camera 0 started (640x480 @ 30 fps)
+23:47:17  INFO      services.sync_service  SyncService started (interval=60s)
+23:47:19  INFO      services.sync_service  Synced 12 record(s) to backend
+23:47:19  INFO      ui.main_window  Auto-synced 12 records
+23:47:30  INFO      ui.dashboard  Recognition started
+23:48:21  INFO      services.sync_service  Synced 12 record(s) to backend
+23:48:21  INFO      ui.main_window  Auto-synced 12 records
+23:48:35  INFO      services.attendance_service  Logged: rishta (101) @ 23:48:35  conf=0.09
+23:49:07  INFO      services.attendance_service  Logged: rishta (101) @ 23:49:07  conf=0.08
+23:49:23  INFO      services.sync_service  Synced 14 record(s) to backend
+23:49:23  INFO      ui.main_window  Auto-synced 14 records
+23:49:38  INFO      services.attendance_service  Logged: rishta (101) @ 23:49:38  conf=0.19
+23:49:41  INFO      ui.dashboard  Recognition stopped
+23:50:10  INFO      services.attendance_service  Logged: rishta (101) @ 23:50:10  conf=0.16
+23:50:25  INFO      services.sync_service  Synced 16 record(s) to backend
+23:50:25  INFO      ui.main_window  Auto-synced 16 records
+23:50:39  INFO      ui.dashboard  Recognition started
+23:51:27  INFO      services.sync_service  Synced 16 record(s) to backend
+23:51:27  INFO      ui.main_window  Auto-synced 16 records
+23:52:29  INFO      core.encoder  Collected sample 1 for kunmun
+23:52:29  INFO      core.encoder  Collected sample 2 for kunmun
+23:52:29  INFO      core.encoder  Collected sample 3 for kunmun
+23:52:29  INFO      core.encoder  Collected sample 4 for kunmun
+23:52:30  INFO      core.encoder  Collected sample 5 for kunmun
+23:52:30  INFO      services.sync_service  Synced 16 record(s) to backend
+23:52:30  INFO      ui.main_window  Auto-synced 16 records
+23:52:30  INFO      core.encoder  Collected sample 6 for kunmun
+23:52:30  INFO      core.encoder  Collected sample 7 for kunmun
+23:52:30  INFO      core.encoder  Collected sample 8 for kunmun
+23:52:30  INFO      core.encoder  Collected sample 9 for kunmun
+23:52:30  INFO      core.encoder  Collected sample 10 for kunmun
+23:52:30  INFO      core.encoder  Collected sample 11 for kunmun
+23:52:30  INFO      core.encoder  Collected sample 12 for kunmun
+23:52:30  INFO      core.encoder  Collected sample 13 for kunmun
+23:52:30  INFO      core.encoder  Collected sample 14 for kunmun
+23:52:30  INFO      core.encoder  Collected sample 15 for kunmun
+23:52:30  INFO      core.encoder  Collected sample 16 for kunmun
+23:52:30  INFO      core.encoder  Collected sample 17 for kunmun
+23:52:30  INFO      core.encoder  Collected sample 18 for kunmun
+23:52:30  INFO      core.encoder  Collected sample 19 for kunmun
+23:52:30  INFO      core.encoder  Collected sample 20 for kunmun
+23:52:31  INFO      core.encoder  Collected sample 21 for kunmun
+23:52:31  INFO      core.encoder  Collected sample 22 for kunmun
+23:52:31  INFO      core.encoder  Collected sample 23 for kunmun
+23:52:31  INFO      core.encoder  Collected sample 24 for kunmun
+23:52:31  INFO      core.encoder  Collected sample 25 for kunmun
+23:52:31  INFO      core.encoder  Collected sample 26 for kunmun
+23:52:31  INFO      core.encoder  Collected sample 27 for kunmun
+23:52:31  INFO      core.encoder  Collected sample 28 for kunmun
+23:52:31  INFO      core.encoder  Collected sample 29 for kunmun
+23:52:31  INFO      core.encoder  Collected sample 30 for kunmun
+23:52:44  INFO      core.encoder  Trained model for kunmun (104)
+23:53:32  INFO      services.sync_service  Synced 16 record(s) to backend
+23:53:32  INFO      ui.main_window  Auto-synced 16 records
+23:53:56  INFO      ui.dashboard  Recognition stopped
+23:53:59  INFO      ui.dashboard  Recognition started
+23:54:34  INFO      services.sync_service  Synced 16 record(s) to backend
+23:54:34  INFO      ui.main_window  Auto-synced 16 records
+23:55:36  INFO      services.sync_service  Synced 16 record(s) to backend
+23:55:36  INFO      ui.main_window  Auto-synced 16 records
+23:55:42  INFO      ui.dashboard  Recognition stopped
+23:55:54  INFO      ui.main_window  Shutting down…
+23:55:54  INFO      ui.dashboard  Recognition stopped
+23:55:59  INFO      services.sync_service  SyncService stopped
+23:55:59  INFO      core.camera  Camera 0 stopped
+09:43:06  INFO      core.encoder  FaceEncoder ready – 2 employee(s)
+09:43:07  INFO      core.camera  Camera 0 started (640x480 @ 30 fps)
+09:43:07  INFO      services.sync_service  SyncService started (interval=60s)
+09:43:09  INFO      services.sync_service  Synced 16 record(s) to backend
+09:43:09  INFO      ui.main_window  Auto-synced 16 records
+09:43:13  INFO      ui.dashboard  Recognition started
+09:44:11  INFO      services.sync_service  Synced 16 record(s) to backend
+09:44:11  INFO      ui.main_window  Auto-synced 16 records
+09:44:23  INFO      ui.dashboard  Recognition stopped
+09:44:52  INFO      ui.dashboard  Recognition started
+09:44:58  INFO      ui.dashboard  Recognition stopped
+09:45:02  INFO      ui.main_window  Shutting down…
+09:45:02  INFO      ui.dashboard  Recognition stopped
+09:45:07  INFO      services.sync_service  SyncService stopped
+09:45:08  INFO      core.camera  Camera 0 stopped
+09:56:42  INFO      core.encoder  Model cache refreshed — 2 model(s) loaded
+09:56:42  INFO      core.encoder  FaceEncoder ready – 2 employee(s) loaded into cache
+09:56:43  INFO      core.camera  Camera 0 started (640x480 @ 30 fps)
+09:56:43  INFO      services.sync_service  SyncService started (interval=60s)
+09:56:45  INFO      services.sync_service  Synced 16 record(s) to backend
+09:56:45  INFO      ui.main_window  Auto-synced 16 records
+10:09:51  INFO      core.encoder  FaceEncoder ready – 0 employee(s) loaded into cache
+10:09:51  INFO      core.camera  Camera 0 started (640x480 @ 30 fps)
+10:09:51  INFO      services.sync_service  SyncService started (interval=60s)
+10:09:53  INFO      services.sync_service  Synced 16 record(s) to backend
+10:09:53  INFO      ui.main_window  Auto-synced 16 records
+10:09:57  INFO      ui.dashboard  RecognitionLoop: waiting for first valid frame…
+10:09:57  INFO      ui.dashboard  Recognition started
+10:09:57  INFO      ui.dashboard  RecognitionLoop: first frame received — starting recognition
+10:10:03  INFO      ui.dashboard  Recognition stopped
+10:10:25  INFO      core.encoder  Collected sample 1 for rishta
+10:10:25  INFO      core.encoder  Collected sample 2 for rishta
+10:10:25  INFO      core.encoder  Collected sample 3 for rishta
+10:10:25  INFO      core.encoder  Collected sample 4 for rishta
+10:10:25  INFO      core.encoder  Collected sample 5 for rishta
+10:10:26  INFO      core.encoder  Collected sample 6 for rishta
+10:10:26  INFO      core.encoder  Collected sample 7 for rishta
+10:10:26  INFO      core.encoder  Collected sample 8 for rishta
+10:10:26  INFO      core.encoder  Collected sample 9 for rishta
+10:10:26  INFO      core.encoder  Collected sample 10 for rishta
+10:10:26  INFO      core.encoder  Collected sample 11 for rishta
+10:10:26  INFO      core.encoder  Collected sample 12 for rishta
+10:10:26  INFO      core.encoder  Collected sample 13 for rishta
+10:10:26  INFO      core.encoder  Collected sample 14 for rishta
+10:10:26  INFO      core.encoder  Collected sample 15 for rishta
+10:10:26  INFO      core.encoder  Collected sample 16 for rishta
+10:10:26  INFO      core.encoder  Collected sample 17 for rishta
+10:10:26  INFO      core.encoder  Collected sample 18 for rishta
+10:10:26  INFO      core.encoder  Collected sample 19 for rishta
+10:10:26  INFO      core.encoder  Collected sample 20 for rishta
+10:10:26  INFO      core.encoder  Collected sample 21 for rishta
+10:10:27  INFO      core.encoder  Collected sample 22 for rishta
+10:10:27  INFO      core.encoder  Collected sample 23 for rishta
+10:10:27  INFO      core.encoder  Collected sample 24 for rishta
+10:10:27  INFO      core.encoder  Collected sample 25 for rishta
+10:10:27  INFO      core.encoder  Collected sample 26 for rishta
+10:10:27  INFO      core.encoder  Collected sample 27 for rishta
+10:10:27  INFO      core.encoder  Collected sample 28 for rishta
+10:10:27  INFO      core.encoder  Collected sample 29 for rishta
+10:10:27  INFO      core.encoder  Collected sample 30 for rishta
+10:10:56  INFO      services.sync_service  Synced 16 record(s) to backend
+10:10:56  INFO      ui.main_window  Auto-synced 16 records
+10:11:13  INFO      core.encoder  Model cache refreshed — 2 model(s) loaded
+10:11:13  INFO      core.encoder  Trained model for rishta (101) — cache refreshed
+10:11:17  INFO      ui.dashboard  RecognitionLoop: waiting for first valid frame…
+10:11:17  INFO      ui.dashboard  Recognition started
+10:11:17  INFO      ui.dashboard  RecognitionLoop: first frame received — starting recognition
+10:11:43  INFO      ui.dashboard  Recognition stopped
+10:11:48  INFO      services.sync_service  Synced 16 record(s) to backend
+10:11:48  INFO      ui.main_window  Auto-synced 16 records
+10:11:58  INFO      services.sync_service  Synced 16 record(s) to backend
+10:11:58  INFO      ui.main_window  Auto-synced 16 records
+10:12:08  INFO      ui.main_window  Shutting down…
+10:12:08  INFO      ui.dashboard  Recognition stopped
+10:12:13  INFO      services.sync_service  SyncService stopped
+10:12:14  INFO      core.camera  Camera 0 stopped
+10:15:57  INFO      core.encoder  FaceEncoder ready – 0 employee(s) loaded into cache
+10:15:57  INFO      core.camera  Camera 0 started (640x480 @ 30 fps)
+10:15:57  INFO      services.sync_service  SyncService started (interval=60s)
+10:15:59  INFO      services.sync_service  Synced 16 record(s) to backend
+10:15:59  INFO      ui.main_window  Auto-synced 16 records
+10:16:03  INFO      ui.dashboard  RecognitionLoop: waiting for first valid frame…
+10:16:03  INFO      ui.dashboard  Recognition started
+10:16:03  INFO      ui.dashboard  RecognitionLoop: first frame received — starting recognition
+10:16:31  INFO      ui.dashboard  Recognition stopped
+10:16:35  INFO      ui.main_window  Shutting down…
+10:16:35  INFO      ui.dashboard  Recognition stopped
+10:16:40  INFO      services.sync_service  SyncService stopped
+10:16:40  INFO      core.camera  Camera 0 stopped
+10:38:53  INFO      core.encoder  FaceEncoder initialized
+10:38:54  INFO      core.camera  Camera 0 started (640x480 @ 30 fps)
+10:38:54  INFO      services.sync_service  SyncService started (interval=60s)
+10:38:56  INFO      services.sync_service  Synced 16 record(s) to backend
+10:38:56  INFO      ui.main_window  Auto-synced 16 records
+10:39:26  INFO      core.encoder  Loaded 2 models into cache
+10:39:58  INFO      services.sync_service  Synced 16 record(s) to backend
+10:39:58  INFO      ui.main_window  Auto-synced 16 records
+10:40:59  INFO      ui.main_window  Shutting down…
+10:41:00  INFO      services.sync_service  Synced 16 record(s) to backend
+10:41:00  INFO      ui.main_window  Auto-synced 16 records
+10:41:04  INFO      services.sync_service  SyncService stopped
+10:41:05  INFO      core.camera  Camera 0 stopped
+10:42:30  INFO      core.encoder  FaceEncoder initialized
+10:42:30  INFO      core.encoder  Loaded 0 models into cache
+10:42:31  INFO      core.camera  Camera 0 started (640x480 @ 30 fps)
+10:42:31  INFO      services.sync_service  SyncService started (interval=60s)
+10:42:33  INFO      services.sync_service  Synced 16 record(s) to backend
+10:42:33  INFO      ui.main_window  Auto-synced 16 records
+10:43:33  INFO      core.encoder  Loaded 1 models into cache
+10:43:34  INFO      services.attendance_service  Logged: Rishta (101) @ 10:43:34  conf=0.23
+10:43:35  INFO      services.sync_service  Synced 16 record(s) to backend
+10:43:35  INFO      ui.main_window  Auto-synced 16 records
+10:44:05  INFO      ui.main_window  Shutting down…
+10:44:10  INFO      services.sync_service  SyncService stopped
+10:44:11  INFO      core.camera  Camera 0 stopped
+10:56:04  INFO      core.encoder  FaceEncoder initialized
+10:56:05  INFO      core.camera  Camera 0 started (640x480 @ 30 fps)
+10:56:05  INFO      services.sync_service  SyncService started (interval=60s)
+10:56:07  INFO      services.sync_service  Synced 17 record(s) to backend
+10:56:07  INFO      ui.main_window  Auto-synced 17 records
+10:56:12  INFO      ui.dashboard  Recognition started
+10:56:19  INFO      ui.dashboard  Recognition stopped
+10:56:22  INFO      core.encoder  Loaded 1 models into cache
+10:57:01  INFO      ui.dashboard  Recognition started
+10:57:01  INFO      services.attendance_service  Logged: rishta (101) @ 10:57:01  conf=0.04
+10:57:09  INFO      services.sync_service  Synced 18 record(s) to backend
+10:57:09  INFO      ui.main_window  Auto-synced 18 records
+10:57:13  INFO      core.encoder  Loaded 1 models into cache
+10:57:13  INFO      ui.dashboard  Recognition stopped
+10:57:20  INFO      services.sync_service  Synced 18 record(s) to backend
+10:57:20  INFO      ui.main_window  Auto-synced 18 records
+10:57:57  INFO      ui.dashboard  Recognition started
+10:57:57  INFO      services.attendance_service  Logged: rishta (101) @ 10:57:57  conf=0.06
+10:58:04  INFO      ui.dashboard  Recognition stopped
+10:58:09  INFO      ui.dashboard  Recognition started
+10:58:11  INFO      services.sync_service  Synced 19 record(s) to backend
+10:58:11  INFO      ui.main_window  Auto-synced 19 records
+10:58:23  INFO      ui.dashboard  Recognition stopped
+10:59:13  INFO      services.sync_service  Synced 19 record(s) to backend
+10:59:13  INFO      ui.main_window  Auto-synced 19 records
+11:00:15  INFO      services.sync_service  Synced 19 record(s) to backend
+11:00:15  INFO      ui.main_window  Auto-synced 19 records
+11:01:17  INFO      services.sync_service  Synced 19 record(s) to backend
+11:01:17  INFO      ui.main_window  Auto-synced 19 records
+11:02:19  INFO      services.sync_service  Synced 19 record(s) to backend
+11:02:19  INFO      ui.main_window  Auto-synced 19 records
+11:03:21  INFO      services.sync_service  Synced 19 record(s) to backend
+11:03:21  INFO      ui.main_window  Auto-synced 19 records
+11:04:24  INFO      services.sync_service  Synced 19 record(s) to backend
+11:04:24  INFO      ui.main_window  Auto-synced 19 records
+11:05:26  INFO      services.sync_service  Synced 19 record(s) to backend
+11:05:26  INFO      ui.main_window  Auto-synced 19 records
+11:06:28  INFO      services.sync_service  Synced 19 record(s) to backend
+11:06:28  INFO      ui.main_window  Auto-synced 19 records
+11:07:30  INFO      services.sync_service  Synced 19 record(s) to backend
+11:07:30  INFO      ui.main_window  Auto-synced 19 records
+11:08:30  INFO      core.encoder  FaceEncoder initialized
+11:08:31  INFO      core.camera  Camera 0 started (640x480 @ 30 fps)
+11:08:31  INFO      services.sync_service  SyncService started (interval=60s)
+11:08:33  INFO      services.sync_service  Synced 19 record(s) to backend
+11:08:33  INFO      ui.main_window  Auto-synced 19 records
+11:08:34  INFO      ui.main_window  Shutting down…
+11:08:34  INFO      ui.dashboard  Recognition stopped
+11:08:39  INFO      services.sync_service  SyncService stopped
+11:08:39  INFO      core.camera  Camera 0 stopped
+11:24:28  INFO      core.encoder  FaceEncoder initialized
+11:24:29  INFO      core.camera  Camera 0 started (640x480 @ 30 fps)
+11:24:29  INFO      services.sync_service  SyncService started (interval=60s)
+11:24:31  INFO      services.sync_service  Synced 19 record(s) to backend
+11:24:31  INFO      ui.main_window  Auto-synced 19 records
+11:24:35  INFO      ui.dashboard  Recognition started
+11:24:50  INFO      ui.dashboard  Recognition stopped
+11:25:00  INFO      core.encoder  Loaded 1 models into cache
+11:25:33  INFO      services.sync_service  Synced 19 record(s) to backend
+11:25:33  INFO      ui.main_window  Auto-synced 19 records
+11:26:35  INFO      services.sync_service  Synced 19 record(s) to backend
+11:26:35  INFO      ui.main_window  Auto-synced 19 records
+11:27:37  INFO      services.sync_service  Synced 19 record(s) to backend
+11:27:37  INFO      ui.main_window  Auto-synced 19 records
+11:28:00  INFO      ui.main_window  Shutting down…
+11:28:00  INFO      ui.dashboard  Recognition stopped
+11:28:05  INFO      services.sync_service  SyncService stopped
+11:28:06  INFO      core.camera  Camera 0 stopped
+11:44:05  INFO      core.encoder  Loaded 0 face models
+11:44:06  INFO      core.camera  Camera 0 started (640x480 @ 30 fps)
+11:44:06  INFO      services.sync_service  SyncService started (interval=60s)
+11:44:08  INFO      services.sync_service  Synced 19 record(s) to backend
+11:44:08  INFO      ui.main_window  Auto-synced 19 records
+11:45:00  INFO      services.attendance_service  Logged: rishta (101) @ 11:45:00  conf=0.72
+11:45:10  INFO      services.sync_service  Synced 20 record(s) to backend
+11:45:10  INFO      ui.main_window  Auto-synced 20 records
+11:45:30  INFO      services.attendance_service  Logged: rishta (101) @ 11:45:30  conf=0.69
+11:45:37  INFO      services.sync_service  Synced 21 record(s) to backend
+11:45:37  INFO      ui.main_window  Auto-synced 21 records
+11:45:41  INFO      services.sync_service  Synced 21 record(s) to backend
+11:45:41  INFO      ui.main_window  Auto-synced 21 records
+11:46:12  INFO      services.sync_service  Synced 21 record(s) to backend
+11:46:12  INFO      ui.main_window  Auto-synced 21 records
+11:47:14  INFO      services.sync_service  Synced 21 record(s) to backend
+11:47:14  INFO      ui.main_window  Auto-synced 21 records
+11:47:30  INFO      ui.main_window  Shutting down…
+11:47:35  INFO      services.sync_service  SyncService stopped
+11:47:36  INFO      core.camera  Camera 0 stopped
+11:57:19  INFO      core.encoder  Loaded 1 face models
+11:57:20  INFO      core.camera  Camera 0 started (640x480 @ 30 fps)
+11:57:20  INFO      services.sync_service  SyncService started (interval=60s)
+11:57:22  INFO      services.sync_service  Synced 21 record(s) to backend
+11:57:22  INFO      ui.main_window  Auto-synced 21 records
+11:57:26  INFO      services.attendance_service  Logged: rishta (101) @ 11:57:26  conf=0.60
+11:58:24  INFO      services.sync_service  Synced 22 record(s) to backend
+11:58:24  INFO      ui.main_window  Auto-synced 22 records
+11:59:26  INFO      services.sync_service  Synced 22 record(s) to backend
+11:59:26  INFO      ui.main_window  Auto-synced 22 records
+12:00:15  INFO      ui.main_window  Shutting down…
+12:00:20  INFO      services.sync_service  SyncService stopped
+12:00:21  INFO      core.camera  Camera 0 stopped
+12:01:32  INFO      core.encoder  Loaded 1 face models
+12:01:32  INFO      core.camera  Camera 0 started (640x480 @ 30 fps)
+12:01:32  INFO      services.sync_service  SyncService started (interval=60s)
+12:01:35  INFO      services.sync_service  Synced 22 record(s) to backend
+12:01:35  INFO      ui.main_window  Auto-synced 22 records
+12:01:38  INFO      services.attendance_service  Logged: rishta (101) @ 12:01:38  conf=0.61
+12:02:08  INFO      services.attendance_service  Logged: rishta (101) @ 12:02:08  conf=0.67
+12:02:37  INFO      services.sync_service  Synced 24 record(s) to backend
+12:02:37  INFO      ui.main_window  Auto-synced 24 records
+12:03:39  INFO      services.sync_service  Synced 24 record(s) to backend
+12:03:39  INFO      ui.main_window  Auto-synced 24 records
+12:04:41  INFO      services.sync_service  Synced 24 record(s) to backend
+12:04:41  INFO      ui.main_window  Auto-synced 24 records
+12:05:43  INFO      services.sync_service  Synced 24 record(s) to backend
+12:05:43  INFO      ui.main_window  Auto-synced 24 records
+12:06:45  INFO      services.sync_service  Synced 24 record(s) to backend
+12:06:45  INFO      ui.main_window  Auto-synced 24 records
+12:07:47  INFO      services.sync_service  Synced 24 record(s) to backend
+12:07:47  INFO      ui.main_window  Auto-synced 24 records
+12:08:00  INFO      ui.main_window  Shutting down…
+12:08:05  INFO      services.sync_service  SyncService stopped
+12:08:05  INFO      core.camera  Camera 0 stopped
+12:37:30  INFO      core.encoder  Loaded 1 face models
+12:37:31  INFO      core.camera  Camera 0 started (640x480 @ 30 fps)
+12:37:31  INFO      services.sync_service  SyncService started (interval=60s)
+12:37:33  INFO      services.sync_service  Synced 24 record(s) to backend
+12:37:33  INFO      ui.main_window  Auto-synced 24 records
+12:37:39  INFO      services.attendance_service  Logged: rishta (101) @ 12:37:39  conf=0.59
+12:38:09  INFO      services.attendance_service  Logged: rishta (101) @ 12:38:09  conf=0.58
+12:38:35  INFO      services.sync_service  Synced 26 record(s) to backend
+12:38:35  INFO      ui.main_window  Auto-synced 26 records
+12:38:39  INFO      services.attendance_service  Logged: rishta (101) @ 12:38:39  conf=0.63
+12:39:09  INFO      services.attendance_service  Logged: rishta (101) @ 12:39:09  conf=0.57
+12:39:37  INFO      services.sync_service  Synced 28 record(s) to backend
+12:39:37  INFO      ui.main_window  Auto-synced 28 records
+12:40:39  INFO      services.sync_service  Synced 28 record(s) to backend
+12:40:39  INFO      ui.main_window  Auto-synced 28 records
+12:41:12  INFO      services.attendance_service  Logged: rishta (101) @ 12:41:12  conf=0.57
+12:41:41  INFO      services.sync_service  Synced 29 record(s) to backend
+12:41:41  INFO      ui.main_window  Auto-synced 29 records
+12:42:44  INFO      services.sync_service  Synced 29 record(s) to backend
+12:42:44  INFO      ui.main_window  Auto-synced 29 records
+12:43:46  INFO      services.sync_service  Synced 29 record(s) to backend
+12:43:46  INFO      ui.main_window  Auto-synced 29 records
+12:44:00  INFO      ui.main_window  Shutting down…
+12:44:05  INFO      services.sync_service  SyncService stopped
+12:44:06  INFO      core.camera  Camera 0 stopped
+12:47:29  INFO      core.encoder  Loaded 1 face models
+12:47:30  INFO      core.camera  Camera 0 started (640x480 @ 30 fps)
+12:47:30  INFO      services.sync_service  SyncService started (interval=60s)
+12:47:32  INFO      services.sync_service  Synced 29 record(s) to backend
+12:47:32  INFO      ui.main_window  Auto-synced 29 records
+12:47:36  INFO      services.attendance_service  Logged: rishta (101) @ 12:47:36  conf=0.55
+12:48:34  INFO      services.sync_service  Synced 30 record(s) to backend
+12:48:34  INFO      ui.main_window  Auto-synced 30 records
+12:49:36  INFO      services.sync_service  Synced 30 record(s) to backend
+12:49:36  INFO      ui.main_window  Auto-synced 30 records
+12:50:38  INFO      services.sync_service  Synced 30 record(s) to backend
+12:50:38  INFO      ui.main_window  Auto-synced 30 records
+12:51:01  INFO      ui.main_window  Shutting down…
+12:51:06  INFO      services.sync_service  SyncService stopped
+12:51:06  INFO      core.camera  Camera 0 stopped
+13:08:55  INFO      core.encoder  Loaded 1 face models
+13:08:56  INFO      core.camera  Camera 0 started (640x480 @ 30 fps)
+13:08:56  INFO      services.sync_service  SyncService started (interval=60s)
+13:08:58  INFO      services.sync_service  Synced 30 record(s) to backend
+13:08:58  INFO      ui.main_window  Auto-synced 30 records
+13:09:03  INFO      services.attendance_service  Logged: rishta (101) @ 13:09:03  conf=0.60
+13:09:23  INFO      services.sync_service  Synced 31 record(s) to backend
+13:09:23  INFO      ui.main_window  Auto-synced 31 records
+13:09:32  INFO      services.sync_service  Synced 31 record(s) to backend
+13:09:32  INFO      ui.main_window  Auto-synced 31 records
+13:09:42  INFO      services.sync_service  Synced 31 record(s) to backend
+13:09:42  INFO      ui.main_window  Auto-synced 31 records
+13:09:43  INFO      services.sync_service  Synced 31 record(s) to backend
+13:09:43  INFO      ui.main_window  Auto-synced 31 records
+13:09:43  INFO      services.sync_service  Synced 31 record(s) to backend
+13:09:43  INFO      ui.main_window  Auto-synced 31 records
+13:09:43  INFO      services.sync_service  Synced 31 record(s) to backend
+13:09:43  INFO      ui.main_window  Auto-synced 31 records
+13:09:43  INFO      services.sync_service  Synced 31 record(s) to backend
+13:09:43  INFO      ui.main_window  Auto-synced 31 records
+13:09:47  INFO      services.sync_service  Synced 31 record(s) to backend
+13:09:47  INFO      ui.main_window  Auto-synced 31 records
+13:09:47  INFO      services.sync_service  Synced 31 record(s) to backend
+13:09:47  INFO      ui.main_window  Auto-synced 31 records
+13:09:48  INFO      services.sync_service  Synced 31 record(s) to backend
+13:09:48  INFO      ui.main_window  Auto-synced 31 records
+13:10:00  INFO      services.sync_service  Synced 31 record(s) to backend
+13:10:00  INFO      ui.main_window  Auto-synced 31 records
+13:10:10  INFO      services.sync_service  Synced 31 record(s) to backend
+13:10:10  INFO      ui.main_window  Auto-synced 31 records
+13:10:10  INFO      services.sync_service  Synced 31 record(s) to backend
+13:10:10  INFO      ui.main_window  Auto-synced 31 records
+13:10:24  INFO      services.sync_service  Synced 31 record(s) to backend
+13:10:24  INFO      ui.main_window  Auto-synced 31 records
+13:10:24  INFO      ui.main_window  Shutting down…
+13:10:29  INFO      services.sync_service  SyncService stopped
+13:10:30  INFO      core.camera  Camera 0 stopped
+13:23:54  INFO      core.encoder  Loaded 1 face models
+13:23:55  INFO      core.camera  Camera 0 started (640x480 @ 30 fps)
+13:23:55  INFO      services.sync_service  SyncService started (interval=60s)
+13:23:57  INFO      services.sync_service  Synced 31 record(s) to backend
+13:23:57  INFO      ui.main_window  Auto-synced 31 records
+13:24:04  INFO      services.attendance_service  Logged: rishta (101) @ 13:24:04  conf=0.51
+13:24:15  INFO      services.sync_service  Synced 32 record(s) to backend
+13:24:15  INFO      ui.main_window  Auto-synced 32 records
+13:24:38  INFO      ui.main_window  Shutting down…
+13:24:43  INFO      services.sync_service  SyncService stopped
+13:24:43  INFO      core.camera  Camera 0 stopped
+13:32:02  INFO      core.encoder  Loaded 1 face models
+13:32:03  INFO      core.camera  Camera 0 started (640x480 @ 30 fps)
+13:32:03  INFO      services.sync_service  SyncService started (interval=60s)
+13:32:05  INFO      services.sync_service  Synced 32 record(s) to backend
+13:32:05  INFO      ui.main_window  Auto-synced 32 records
+13:32:10  INFO      services.attendance_service  Logged: rishta (101) @ 13:32:10  conf=0.59
+13:33:04  INFO      services.sync_service  Synced 33 record(s) to backend
+13:33:04  INFO      ui.main_window  Auto-synced 33 records
+13:33:05  INFO      services.sync_service  Synced 33 record(s) to backend
+13:33:05  INFO      ui.main_window  Auto-synced 33 records
+13:34:07  INFO      services.sync_service  Synced 33 record(s) to backend
+13:34:07  INFO      ui.main_window  Auto-synced 33 records
+13:34:17  INFO      services.attendance_service  Logged: rishta (101) @ 13:34:17  conf=0.04
+13:35:09  INFO      services.sync_service  Synced 34 record(s) to backend
+13:35:09  INFO      ui.main_window  Auto-synced 34 records
+13:35:11  INFO      services.sync_service  Synced 34 record(s) to backend
+13:35:11  INFO      ui.main_window  Auto-synced 34 records
+13:35:13  INFO      ui.main_window  Shutting down…
+13:35:18  INFO      services.sync_service  SyncService stopped
+13:35:18  INFO      core.camera  Camera 0 stopped
